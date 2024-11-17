@@ -5,7 +5,6 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 COPY requirements.txt .
-RUN pip install pipenv
-RUN pipenv install
+RUN pip install pipenv && pipenv install
 
 COPY . .
