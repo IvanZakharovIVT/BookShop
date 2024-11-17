@@ -5,7 +5,7 @@ from books.models.base_model import BaseModel
 
 
 class Book(BaseModel):
-    """Задание партнера"""
+    """Книги"""
     BOOK_TYPES = tuple(
         ((book_type.value, book_type.description) for book_type in BookGenre)
     )
