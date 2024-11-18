@@ -1,10 +1,14 @@
 FROM python:3.12-alpine
 
-ENV PYTHONUNBUFFERED=1
-
 WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install pipenv && pipenv install
+RUN apk update
 
-COPY . .
+RUN apk add --no-cache python3 py3-setuptools py3-pip
+
+COPY Pipfile Pipfile.lock ./
+
+COPY . /app
+
+RUN pip install pipenv
+RUN pipenv install
